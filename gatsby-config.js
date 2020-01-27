@@ -17,13 +17,11 @@ module.exports = {
       }
     },
     {
-      // This plugin transforms Markdown into HTML.
-      resolve: "gatsby-transformer-remark",
+      // This plugin transforms Markdown + JSX into HTML.
+      resolve: "gatsby-plugin-mdx",
       options: {
-        // `excerpt_separator` specifies a string that is used to demarcate
-        // a section of a Markdown file to use as an excerpt, or "preview".
-        excerpt_separator: `<!-- / -->`,
-        plugins: [
+        extensions: [".mdx", ".md"],
+        gatsbyRemarkPlugins: [
           // A plugin to render emoji in markdown.
           "gatsby-remark-emoji",
           // A plugin to replace "dumb" punctuation marks with "smart" punctuation marks.
@@ -54,8 +52,8 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "src",
-        path: `${__dirname}/src`
+        name: "pages",
+        path: `${__dirname}/src/pages/`
       }
     },
 
