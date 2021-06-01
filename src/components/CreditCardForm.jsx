@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
+
+import { useState } from "react";
 import chroma from "chroma-js";
-import { Box, Button, Heading, css, jsx, useThemeUI } from "theme-ui";
+import { Box, Button, Heading, css, useThemeUI } from "theme-ui";
 import { CardElement, useElements } from "@stripe/react-stripe-js";
 
 import StripeBadge from "@components/StripeBadge";
@@ -51,13 +52,13 @@ export function CardInput({ onChange }) {
 
               "::placeholder": {
                 // Matches theme.text.input::placeholder
-                color: ({ colors }) =>
-                  chroma(colors.accent)
+                color: ({ rawColors }) =>
+                  chroma(rawColors.accent)
                     .alpha(0.6)
                     .css()
               }
             })(theme),
-            iconColor: theme.colors.accent
+            iconColor: theme.rawColors.accent
           },
           invalid: {
             color: "red"
@@ -77,8 +78,8 @@ function FieldSet({ children }) {
         borderRadius: "4px",
         boxShadow: function(theme) {
           // TODO(dabrady) Make the boxshadow work with darkmode
-          var bgColor = chroma(getColorFromTheme(theme, "background"));
-          var shadow = chroma(getColorFromTheme(theme, "shadow"));
+          var bgColor = chroma(theme.rawColors.background);
+          var shadow = chroma(theme.rawColors.shadow);
 
           return `
               0 6px 9px ${

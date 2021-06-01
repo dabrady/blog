@@ -1,9 +1,8 @@
-import { Global } from "@emotion/core";
-/** @jsx jsx */
-import { Container, jsx } from "theme-ui";
+/** @jsxImportSource theme-ui */
+import { Global } from "@emotion/react";
+import { Container } from "theme-ui";
 import { Helmet } from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
-import React from "react";
 
 export default function MainLayout({ children }) {
   return (

@@ -1,7 +1,8 @@
-import React, { useCallback, useState } from "react";
+/** @jsxImportSource theme-ui */
+
+import { useCallback, useState } from "react";
 import _ from "lodash";
-/** @jsx jsx */
-import { Box, Donut, Flex, Heading, Spinner, jsx } from "theme-ui";
+import { Box, Donut, Flex, Heading, Spinner } from "theme-ui";
 import { alpha } from "@theme-ui/color";
 import { useResponsiveValue } from "@theme-ui/match-media";
 
@@ -87,7 +88,7 @@ function WishlistItem({
                 "🥳🙏"
               ) : (
                 <span>
-                  <small sx={{ color: alpha("text", 0.5) }}>
+                  <small sx={{ color: alpha("text", 0.5)}}>
                     {parseInt(balance)} /
                   </small>
                   {` ${value} USD`}
@@ -213,7 +214,7 @@ export default function Wishlist() {
                   balance={balance}
                   onClick={function markSelected() {
                     if (_.get(selectedItem, "item_id") == itemId) return;
-                    console.log(`'${itemName}' selected`);
+                    console.debug(`'${itemName}' selected`);
                     setSelectedItem(item);
                   }}
                 >

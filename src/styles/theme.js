@@ -24,7 +24,9 @@ const palette = {
 export default {
   /** Theme UI configuration */
   // @see https://theme-ui.com/theming#configuration-flags
-  useColorSchemeMediaQuery: true,
+  config: {
+    useColorSchemeMediaQuery: true,
+  },
 
   /** Custom attributes **/
 
